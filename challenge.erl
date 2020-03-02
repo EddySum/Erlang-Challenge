@@ -1,5 +1,7 @@
 -module(challenge).
     -export([main/1,printData/1]).
+    % Function will take string parameter for the ASCII input
+    % Sample Call: challenge:main("0000011319353459011000000000020000080403001305102808301308040804123456123456192165102801").
     main(ASCI) -> 
         Data = [
             {'Account_number', string:substr(ASCI, 1, 16)},
@@ -15,7 +17,8 @@
         ],
     
         [printData(Tup)|| Tup <- Data].
-
+    
+    %Print the data for the key value tuple
     printData(Tuple) -> 
         Key = element(1, Tuple),
         io:fwrite("~p: ", [Key]),
